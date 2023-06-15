@@ -1,0 +1,25 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e3536ca4df8947768ea95107f8d9aeac, type: 3}
+  m_Name: SlideLeftRightAnimation
+  m_EditorClassIdentifier: 
+  data:
+    showValue:
+      direction: 0
+      anchorPos: {x: 0, y: 0}
+    hideValue:
+      direction: 0
+      anchorPos: {x: 0, y: 0}
+    showDuration: 0.25
+    hideDuration: 0.25
+    delay: 0
+    ease: 21

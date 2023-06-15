@@ -1,0 +1,12 @@
+{
+  "name": "com.doublecoconut.uiservice",
+  "version": "1.0.0",
+  "displayName": "UI Service",
+  "description": "UI Service Module",
+  "unity": "2020.3",
+  "dependencies": {
+    "com.cysharp.unitask": "",
+    "com.neuecc.unirx": "",
+    "com.svermeulen.extenject": ""
+  }
+}
