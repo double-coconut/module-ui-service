@@ -1,6 +1,6 @@
 using Zenject;
 
-namespace Services.UIService.HUD.Top
+namespace UIService.Runtime.Hud.Top
 {
     public class TopPanelInstaller : MonoInstaller
     {

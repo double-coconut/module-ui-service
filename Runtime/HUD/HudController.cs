@@ -2,12 +2,12 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using Cysharp.Threading.Tasks;
-using Services.UIService.Core;
-using Services.UIService.Utilities;
+using UIService.Runtime.Core;
+using UIService.Runtime.Utilities;
 using UniRx;
 using Object = UnityEngine.Object;
 
-namespace Services.UIService.HUD
+namespace UIService.Runtime.Hud
 {
     public class HudController
     {

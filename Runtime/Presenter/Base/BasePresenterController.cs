@@ -1,6 +1,6 @@
 using System;
 
-namespace Services.UIService.Presenter.Base
+namespace UIService.Runtime.Presenter.Base
 {
     public class BasePresenterController : IPresenterController, IDisposable
     {

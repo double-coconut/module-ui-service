@@ -1,7 +1,7 @@
-using Services.UIService.Presenter;
-using Services.UIService.Presenter.Base;
+using UIService.Runtime.Presenter;
+using UIService.Runtime.Presenter.Base;
 
-namespace Services.UIService.Examples.Popups.TempWithDataAndController
+namespace UIService.Runtime.Examples.Popups.TempWithDataAndController
 {
     public class TempWithDataAndControllerPopupController : BasePresenterController
     {

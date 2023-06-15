@@ -1,9 +1,8 @@
 using DG.Tweening;
-using Services.UIService.Presenter.Base;
+using UIService.Runtime.Presenter.Base;
 using UnityEngine;
-using UnityEngine.Serialization;
 
-namespace Services.UIService.Presenter.Animations
+namespace UIService.Runtime.Presenter.Animations
 {
     [CreateAssetMenu(fileName = "SlideAnimation", menuName = "UI Service/Animations/Slide", order = 0)]
     public class SlideAnimation : AbstractAnimation<SlideAnimation.InputValues>

@@ -1,6 +1,6 @@
 using Zenject;
 
-namespace Services.UIService.HUD.Bottom
+namespace UIService.Runtime.Hud.Bottom
 {
     public class BottomPanelInstaller : MonoInstaller
     {

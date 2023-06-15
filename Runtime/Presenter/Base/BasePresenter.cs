@@ -1,13 +1,13 @@
 using System;
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
-using Services.UIService.Core;
-using Services.UIService.Presenter.Animations;
+using UIService.Runtime.Core;
+using UIService.Runtime.Presenter.Animations;
 using UnityEngine;
 using UnityEngine.UI;
 using Zenject;
 
-namespace Services.UIService.Presenter.Base
+namespace UIService.Runtime.Presenter.Base
 {
     [RequireComponent(typeof(GameObjectContext))]
     [RequireComponent(typeof(ZenAutoInjecter))]

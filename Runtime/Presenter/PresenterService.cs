@@ -1,13 +1,13 @@
 using System;
 using System.Collections.Generic;
 using Cysharp.Threading.Tasks;
-using Services.UIService.Core;
-using Services.UIService.Presenter.Base;
-using Services.UIService.Utilities;
+using UIService.Runtime.Core;
+using UIService.Runtime.Presenter.Base;
+using UIService.Runtime.Utilities;
 using UniRx;
 using Object = UnityEngine.Object;
 
-namespace Services.UIService.Presenter
+namespace UIService.Runtime.Presenter
 {
     public class PresenterService
     {

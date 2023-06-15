@@ -1,7 +1,7 @@
 using System;
 using UnityEngine;
 
-namespace Services.UIService.Utilities
+namespace UIService.Runtime.Utilities
 {
     public enum FitmentType
     {

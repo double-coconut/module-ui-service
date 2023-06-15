@@ -1,8 +1,8 @@
 using System;
-using Services.UIService.Presenter;
+using UIService.Runtime.Presenter;
 using UniRx;
 
-namespace Services.UIService.HUD.Bottom
+namespace UIService.Runtime.Hud.Bottom
 {
     public class BottomPanelController : IDisposable
     {

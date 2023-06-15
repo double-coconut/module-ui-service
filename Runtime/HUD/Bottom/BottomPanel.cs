@@ -1,12 +1,12 @@
 using Cysharp.Threading.Tasks;
 using DG.Tweening;
-using Services.UIService.Core;
-using Services.UIService.Utilities;
+using UIService.Runtime.Core;
+using UIService.Runtime.Utilities;
 using UniRx;
 using UnityEngine;
 using Zenject;
 
-namespace Services.UIService.HUD.Bottom
+namespace UIService.Runtime.Hud.Bottom
 {
     public class BottomPanel : InitializableView
     {

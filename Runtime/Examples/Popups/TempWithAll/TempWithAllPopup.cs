@@ -1,10 +1,10 @@
-using Services.UIService.Core;
-using Services.UIService.Presenter.Base;
 using TMPro;
+using UIService.Runtime.Core;
+using UIService.Runtime.Presenter.Base;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Services.UIService.Examples.Popups.TempWithAll
+namespace UIService.Runtime.Examples.Popups.TempWithAll
 {
     [RequireComponent(typeof(TempWithAllPopupInstaller))]
     public class TempWithAllPopup : BasePresenterWithController<TempWithAllPopup.Data, TempWithAllPopupController,

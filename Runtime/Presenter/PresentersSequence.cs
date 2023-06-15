@@ -1,8 +1,8 @@
 using System.Collections.Generic;
-using Services.UIService.Presenter.Base;
+using UIService.Runtime.Presenter.Base;
 using UnityEngine;
 
-namespace Services.UIService.Presenter
+namespace UIService.Runtime.Presenter
 {
     public class PresentersSequence
     {

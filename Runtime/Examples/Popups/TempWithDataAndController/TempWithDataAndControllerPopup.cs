@@ -1,11 +1,11 @@
 using System;
-using Services.UIService.Core;
-using Services.UIService.Presenter.Base;
+using UIService.Runtime.Core;
+using UIService.Runtime.Presenter.Base;
 using UniRx;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Services.UIService.Examples.Popups.TempWithDataAndController
+namespace UIService.Runtime.Examples.Popups.TempWithDataAndController
 {
     [RequireComponent(typeof(TempWithDataAndControllerPopupInstaller))]
     public class TempWithDataAndControllerPopup : BasePresenterWithController<

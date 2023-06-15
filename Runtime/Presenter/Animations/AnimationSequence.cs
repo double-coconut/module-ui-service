@@ -1,4 +1,4 @@
-namespace Services.UIService.Presenter.Animations
+namespace UIService.Runtime.Presenter.Animations
 {
     [System.Serializable]
     public struct AnimationSequence

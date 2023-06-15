@@ -1,8 +1,8 @@
 using DG.Tweening;
-using Services.UIService.Presenter.Base;
+using UIService.Runtime.Presenter.Base;
 using UnityEngine;
 
-namespace Services.UIService.Presenter.Animations
+namespace UIService.Runtime.Presenter.Animations
 {
     [CreateAssetMenu(fileName = "ScaleAnimation", menuName = "UI Service/Animations/Scale", order = 0)]
     public class ScaleAnimation : AbstractAnimation<Vector3>

@@ -1,7 +1,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Services.UIService.Utilities
+namespace UIService.Runtime.Utilities
 {
     [ExecuteInEditMode]
     public class ImageAutoPivot : Image

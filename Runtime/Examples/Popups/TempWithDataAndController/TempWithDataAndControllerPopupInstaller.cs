@@ -1,6 +1,6 @@
 using Zenject;
 
-namespace Services.UIService.Examples.Popups.TempWithDataAndController
+namespace UIService.Runtime.Examples.Popups.TempWithDataAndController
 {
     public class TempWithDataAndControllerPopupInstaller : MonoInstaller
     {

@@ -3,7 +3,7 @@ using Cysharp.Threading.Tasks;
 using UniRx;
 using UnityEngine;
 
-namespace Services.UIService.Core
+namespace UIService.Runtime.Core
 {
     public abstract class View : MonoBehaviour
     {

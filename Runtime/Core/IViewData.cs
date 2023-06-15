@@ -1,6 +1,6 @@
 using System;
 
-namespace Services.UIService.Core
+namespace UIService.Runtime.Core
 {
     public interface IViewData
     {

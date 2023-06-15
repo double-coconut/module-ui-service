@@ -1,8 +1,8 @@
 using Cysharp.Threading.Tasks;
-using Services.UIService.Presenter;
-using Services.UIService.Presenter.Base;
+using UIService.Runtime.Presenter;
+using UIService.Runtime.Presenter.Base;
 
-namespace Services.UIService.Examples.Popups.TempWithController
+namespace UIService.Runtime.Examples.Popups.TempWithController
 {
     public class TempWithControllerPopupController : BasePresenterController
     {

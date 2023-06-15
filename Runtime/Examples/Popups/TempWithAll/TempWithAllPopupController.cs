@@ -1,8 +1,8 @@
-using Services.UIService.Presenter;
-using Services.UIService.Presenter.Base;
+using UIService.Runtime.Presenter;
+using UIService.Runtime.Presenter.Base;
 using Zenject;
 
-namespace Services.UIService.Examples.Popups.TempWithAll
+namespace UIService.Runtime.Examples.Popups.TempWithAll
 {
     public class TempWithAllPopupController : BasePresenterController
     {

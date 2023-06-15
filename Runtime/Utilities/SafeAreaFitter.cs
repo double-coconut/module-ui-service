@@ -1,7 +1,7 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace Services.UIService.Utilities
+namespace UIService.Runtime.Utilities
 {
     [RequireComponent(typeof(RectTransform))]
     public class SafeAreaFitter : MonoBehaviour

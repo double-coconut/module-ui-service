@@ -1,11 +1,10 @@
 using System;
-using Services.UIService.Presenter.Base;
+using UIService.Runtime.Presenter.Base;
 using UniRx;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 using Zenject;
 
-namespace Services.UIService.Presenter
+namespace UIService.Runtime.Presenter
 {
     public class PresenterView : MonoBehaviour, IInitializable, IDisposable
     {

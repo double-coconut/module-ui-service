@@ -1,9 +1,9 @@
 using System.IO;
 using Cysharp.Threading.Tasks;
-using Services.UIService.Core;
+using UIService.Runtime.Core;
 using UnityEngine;
 
-namespace Services.UIService.Utilities
+namespace UIService.Runtime.Utilities
 {
     public class LoaderService
     {

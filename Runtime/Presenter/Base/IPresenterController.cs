@@ -1,4 +1,4 @@
-namespace Services.UIService.Presenter.Base
+namespace UIService.Runtime.Presenter.Base
 {
     public interface IPresenterController
     {

@@ -1,9 +1,9 @@
-using Services.UIService.Core;
-using Services.UIService.Presenter.Base;
+using UIService.Runtime.Core;
+using UIService.Runtime.Presenter.Base;
 using UnityEngine;
 using UnityEngine.UI;
 
-namespace Services.UIService.Examples.Popups.TempWithController
+namespace UIService.Runtime.Examples.Popups.TempWithController
 {
     [RequireComponent(typeof(TempWithControllerPopupInstaller))]
     public class TempWithControllerPopup :  BasePresenterWithController<TempWithControllerPopupController>

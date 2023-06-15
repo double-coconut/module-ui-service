@@ -1,8 +1,8 @@
-using Services.UIService.Presenter;
-using Services.UIService.Utilities;
+using UIService.Runtime.Presenter;
+using UIService.Runtime.Utilities;
 using Zenject;
 
-namespace Services.UIService.Installers
+namespace UIService.Runtime.Installers
 {
     public class UIServiceInstaller : Installer<UIServiceInstaller>
     {

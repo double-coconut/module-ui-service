@@ -1,7 +1,7 @@
-using Services.UIService.Core;
+using UIService.Runtime.Core;
 using Zenject;
 
-namespace Services.UIService.Presenter.Base
+namespace UIService.Runtime.Presenter.Base
 {
     public abstract class BasePresenterWithController<TController> : BasePresenter
         where TController : IPresenterController

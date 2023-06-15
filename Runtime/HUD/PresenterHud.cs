@@ -1,11 +1,10 @@
 using System;
-using Services.UIService.Core;
-using Services.UIService.Presenter;
+using UIService.Runtime.Core;
 using UniRx;
 using UnityEngine;
 using Zenject;
 
-namespace Services.UIService.HUD
+namespace UIService.Runtime.Hud
 {
     public class PresenterHud : MonoBehaviour, IInitializable, IDisposable
     {

@@ -1,7 +1,7 @@
 using System;
-using Services.UIService.Presenter;
+using UIService.Runtime.Presenter;
 
-namespace Services.UIService.HUD.Top
+namespace UIService.Runtime.Hud.Top
 {
     public class TopPanelController : IDisposable
     {
