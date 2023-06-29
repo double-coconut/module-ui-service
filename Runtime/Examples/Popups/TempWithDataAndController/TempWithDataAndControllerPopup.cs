@@ -32,7 +32,7 @@ namespace UIService.Runtime.Examples.Popups.TempWithDataAndController
             _compositeDisposable?.Dispose();
         }
 
-        public class Data : IViewData
+        public class Data : IPresenterData
         {
             public Action OnClose;
         }

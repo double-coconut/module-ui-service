@@ -5,19 +5,19 @@ using UnityEngine;
 
 namespace UIService.Runtime.Core
 {
-    public abstract class View : MonoBehaviour
+    public abstract class Presenter : MonoBehaviour
     {
-        protected Subject<View> BeforeShowSubject = new Subject<View>();
-        protected Subject<View> AfterShowSubject = new Subject<View>();
-        protected Subject<View> BeforeHideSubject = new Subject<View>();
-        protected Subject<View> AfterHideSubject = new Subject<View>();
+        protected Subject<Presenter> BeforeShowSubject = new Subject<Presenter>();
+        protected Subject<Presenter> AfterShowSubject = new Subject<Presenter>();
+        protected Subject<Presenter> BeforeHideSubject = new Subject<Presenter>();
+        protected Subject<Presenter> AfterHideSubject = new Subject<Presenter>();
         private Subject<bool> FocusSubject = new Subject<bool>();
 
 
-        public IObservable<View> OnBeforeShow => BeforeShowSubject;
-        public IObservable<View> OnAfterShow => AfterShowSubject;
-        public IObservable<View> OnBeforeHide => BeforeHideSubject;
-        public IObservable<View> OnAfterHide => AfterHideSubject;
+        public IObservable<Presenter> OnBeforeShow => BeforeShowSubject;
+        public IObservable<Presenter> OnAfterShow => AfterShowSubject;
+        public IObservable<Presenter> OnBeforeHide => BeforeHideSubject;
+        public IObservable<Presenter> OnAfterHide => AfterHideSubject;
         public IObservable<bool> OnFocused => FocusSubject;
         public bool IsFocused { get; private set; }
 

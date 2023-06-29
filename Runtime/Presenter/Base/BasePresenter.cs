@@ -12,7 +12,7 @@ namespace UIService.Runtime.Presenter.Base
     [RequireComponent(typeof(GameObjectContext))]
     [RequireComponent(typeof(ZenAutoInjecter))]
     [RequireComponent(typeof(CanvasGroup))]
-    public abstract class BasePresenter : InitializableView, IDisposable
+    public abstract class BasePresenter : InitializablePresenter, IDisposable
     {
         [Header("Animations")] [SerializeField]
         protected AnimationSequence[] animationSequence;

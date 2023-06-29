@@ -12,20 +12,20 @@ namespace UIService.Runtime.Hud
     public class HudController
     {
         private readonly string _panelPrefabsPath = "UI/Panels";
-        private readonly LoaderService _assetService;
-        private readonly ReactiveCommand<InitializableView> _panelShowObservable;
-        private readonly List<InitializableView> _activePanels;
-        public IObservable<InitializableView> PanelShowObservable => _panelShowObservable;
-        public HudController(LoaderService assetService)
+        private readonly PresenterLoader _asset;
+        private readonly ReactiveCommand<InitializablePresenter> _panelShowObservable;
+        private readonly List<InitializablePresenter> _activePanels;
+        public IObservable<InitializablePresenter> PanelShowObservable => _panelShowObservable;
+        public HudController(PresenterLoader asset)
         {
-            _assetService = assetService;
-            _activePanels = new List<InitializableView>();
-            _panelShowObservable = new ReactiveCommand<InitializableView>();
+            _asset = asset;
+            _activePanels = new List<InitializablePresenter>();
+            _panelShowObservable = new ReactiveCommand<InitializablePresenter>();
         }
         
-        public async UniTask<T> Show<T>() where T : InitializableView
+        public async UniTask<T> Show<T>() where T : InitializablePresenter
         {
-            T panelPrefab = await _assetService.LoadPrefabAsync<T>(_panelPrefabsPath);
+            T panelPrefab = await _asset.LoadPrefabAsync<T>(_panelPrefabsPath);
             T panel = Object.Instantiate(panelPrefab);
             _panelShowObservable.Execute(panel);
             _activePanels.Add(panel);
@@ -34,13 +34,13 @@ namespace UIService.Runtime.Hud
             return panel;
         }
         
-        public T Get<T>() where T : InitializableView
+        public T Get<T>() where T : InitializablePresenter
         {
             return _activePanels.FirstOrDefault(panel=>panel is T) as T;
         }
-        public void Hide<T>() where T : InitializableView
+        public void Hide<T>() where T : InitializablePresenter
         {
-            InitializableView panel = _activePanels.FirstOrDefault(panel=>panel is T);
+            InitializablePresenter panel = _activePanels.FirstOrDefault(panel=>panel is T);
             if (panel!=null)
             {
                 panel.Hide();
@@ -51,7 +51,7 @@ namespace UIService.Runtime.Hud
         
         public void HideAll()
         {
-            foreach (InitializableView panel in _activePanels)
+            foreach (InitializablePresenter panel in _activePanels)
             {
                 panel.Hide();
                 Object.Destroy(panel.gameObject);

@@ -8,7 +8,7 @@ namespace UIService.Runtime.Installers
     {
         public override void InstallBindings()
         {
-            Container.Bind<LoaderService>().AsSingle().NonLazy();
+            Container.Bind<PresenterLoader>().AsSingle().NonLazy();
             Container.Bind<PresenterService>().AsSingle().NonLazy();
         }
     }
