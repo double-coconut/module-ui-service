@@ -45,7 +45,7 @@ namespace UIService.Runtime.Examples.Popups.TempWithAll
         {
         }
 
-        public class Data : IViewData
+        public class Data : IPresenterData
         {
             public string Name;
         }

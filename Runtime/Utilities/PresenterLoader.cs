@@ -5,15 +5,15 @@ using UnityEngine;
 
 namespace UIService.Runtime.Utilities
 {
-    public class LoaderService
+    public class PresenterLoader
     {
-        public T LoadPrefab<T>(string path) where T : View
+        public T LoadPrefab<T>(string path) where T : Core.Presenter
         {
             string name = typeof(T).Name;
             return Resources.Load<T>(Path.Combine(path, name));
         }
 
-        public async UniTask<T> LoadPrefabAsync<T>(string path) where T : View
+        public async UniTask<T> LoadPrefabAsync<T>(string path) where T : Core.Presenter
         {
             string name = typeof(T).Name;
             var asset = await Resources.LoadAsync<T>(Path.Combine(path, name));

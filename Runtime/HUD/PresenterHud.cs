@@ -28,7 +28,7 @@ namespace UIService.Runtime.Hud
             _hudController.PanelShowObservable.Subscribe(OnPanelShow).AddTo(_disposable);
         }
 
-        private void OnPanelShow(InitializableView panel)
+        private void OnPanelShow(InitializablePresenter panel)
         {
             panel.transform.SetParent(transform, false);
         }

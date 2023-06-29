@@ -12,22 +12,24 @@ namespace UIService.Runtime.Presenter
     public class PresenterService
     {
         private readonly string _presenterPrefabsPath = "UI/Presenters";
-        private readonly LoaderService _assetService;
+        private readonly PresenterLoader _asset;
         private readonly Stack<PresentersSequence> _presentersStack;
         private readonly ReactiveCommand<BasePresenter> _presenterToShow;
         private readonly BoolReactiveProperty _hasActivePresenter;
 
         public IReadOnlyReactiveProperty<bool> HasActivePresenter => _hasActivePresenter;
+        public IObservable<BasePresenter> ObserveNewPresenter => _presenterToShow;
+        
 
-        public PresenterService(LoaderService assetService)
+        public PresenterService(PresenterLoader asset)
         {
-            _assetService = assetService;
+            _asset = asset;
             _hasActivePresenter = new BoolReactiveProperty();
             _presentersStack = new Stack<PresentersSequence>();
             _presenterToShow = new ReactiveCommand<BasePresenter>();
         }
 
-        public async UniTask Show<T>(IViewData data = null, bool hidePrevious = true) where T : BasePresenter
+        public async UniTask Show<T>(IPresenterData data = null, bool hidePrevious = true) where T : BasePresenter
         {
             _hasActivePresenter.Value = true;
             if (hidePrevious)
@@ -35,7 +37,7 @@ namespace UIService.Runtime.Presenter
                 await HideLast();
             }
 
-            T mockup = await _assetService.LoadPrefabAsync<T>(_presenterPrefabsPath);
+            T mockup = await _asset.LoadPrefabAsync<T>(_presenterPrefabsPath);
             T presenter = Object.Instantiate(mockup);
             presenter.Disable();
             PresentersSequence sequence = new PresentersSequence(presenter);
@@ -45,10 +47,10 @@ namespace UIService.Runtime.Presenter
             await Show(presenter);
         }
 
-        public async void ShowInCurrentSequence<T>(IViewData data = null) where T : BasePresenter
+        public async UniTask ShowInCurrentSequence<T>(IPresenterData data = null) where T : BasePresenter
         {
             _hasActivePresenter.Value = true;
-            T mockup = await _assetService.LoadPrefabAsync<T>(_presenterPrefabsPath);
+            T mockup = await _asset.LoadPrefabAsync<T>(_presenterPrefabsPath);
             T presenter = Object.Instantiate(mockup);
             presenter.Disable();
             presenter.Initialize(data);
@@ -65,7 +67,7 @@ namespace UIService.Runtime.Presenter
             _presenterToShow.Execute(presenter);
         }
 
-        public async void Hide()
+        public async UniTask Hide()
         {
             PresentersSequence sequence = await HideLast();
             if (sequence == null || sequence.IsEmpty)
@@ -131,11 +133,7 @@ namespace UIService.Runtime.Presenter
             presenter.CallAfterHide();
             return sequence;
         }
-
-        public IObservable<BasePresenter> ObserveNewPresenter()
-        {
-            return _presenterToShow;
-        }
+        
 
         public void Reset()
         {

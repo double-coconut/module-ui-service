@@ -7,7 +7,7 @@ using Zenject;
 
 namespace UIService.Runtime.Hud.Top
 {
-    public class TopPanel : InitializableView, IViewData
+    public class TopPanel : InitializablePresenter
     {
         [SerializeField] private Canvas canvas;
         [SerializeField] private RectTransform baseHolder;
@@ -23,9 +23,10 @@ namespace UIService.Runtime.Hud.Top
             _controller = controller;
         }
 
-        public override void Initialize(IViewData data = null)
+        public override UniTask Initialize(IPresenterData data = null)
         {
             baseHolder.FitInSafeArea(FitmentType.Horizontal);
+            return UniTask.CompletedTask;
         }
 
         public override UniTask Show()

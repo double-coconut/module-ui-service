@@ -8,7 +8,7 @@ using Zenject;
 
 namespace UIService.Runtime.Hud.Bottom
 {
-    public class BottomPanel : InitializableView
+    public class BottomPanel : InitializablePresenter
     {
         [SerializeField] private Canvas canvas;
         [SerializeField] private RectTransform baseHolder;
@@ -75,9 +75,10 @@ namespace UIService.Runtime.Hud.Bottom
             gameObject.SetActive(true);
         }
 
-        public override async void Initialize(IViewData data = null)
+        public override UniTask Initialize(IPresenterData data = null)
         {
             baseHolder.FitInSafeArea(FitmentType.Horizontal);
+            return UniTask.CompletedTask;
         }
     }
 }

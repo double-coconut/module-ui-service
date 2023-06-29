@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UIService.Runtime.Core;
 using Zenject;
 
@@ -16,28 +17,29 @@ namespace UIService.Runtime.Presenter.Base
     }
 
     public abstract class BasePresenterWithController<TData, TController> : BasePresenterWithController<TController>
-        where TData : IViewData
+        where TData : IPresenterData
         where TController : IPresenterController
     {
         protected TData PresenterData;
 
-        public override void Initialize(IViewData data = null)
+        public override UniTask Initialize(IPresenterData data = null)
         {
             var castedData = (TData) data;
             if (castedData == null)
             {
-                throw new IViewData.WrongData<TData>(GetType());
+                throw new IPresenterData.WrongData<TData>(GetType());
             }
 
             PresenterData = castedData;
             InternalInit();
+            return UniTask.CompletedTask;
         }
 
         protected abstract void InternalInit();
     }
 
     public abstract class BasePresenterWithController<TData, TController, TFactory> : BasePresenter
-        where TData : IViewData
+        where TData : IPresenterData
         where TController : IPresenterController
         where TFactory : PlaceholderFactoryBase<TController>
     {
@@ -51,16 +53,17 @@ namespace UIService.Runtime.Presenter.Base
             Factory = factory;
         }
 
-        public override void Initialize(IViewData data = null)
+        public override UniTask Initialize(IPresenterData data = null)
         {
             var castedData = (TData) data;
             if (castedData == null)
             {
-                throw new IViewData.WrongData<TData>(GetType());
+                throw new IPresenterData.WrongData<TData>(GetType());
             }
 
             PresenterData = castedData;
             InternalInit();
+            return UniTask.CompletedTask;
         }
 
         protected abstract void InternalInit();

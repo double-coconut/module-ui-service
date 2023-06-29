@@ -1,3 +1,4 @@
+using Cysharp.Threading.Tasks;
 using UIService.Runtime.Core;
 using UIService.Runtime.Presenter.Base;
 using UnityEngine;
@@ -9,9 +10,10 @@ namespace UIService.Runtime.Examples.Popups.TempWithController
     public class TempWithControllerPopup :  BasePresenterWithController<TempWithControllerPopupController>
     {
         [SerializeField] private Button someButton;
-        public override void Initialize(IViewData data = null)
+        public override UniTask Initialize(IPresenterData data = null)
         {
             someButton.onClick.AddListener(OnReLoginButtonClicked);
+            return UniTask.CompletedTask;
         }
 
         private async void OnReLoginButtonClicked()
