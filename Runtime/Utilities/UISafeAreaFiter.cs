@@ -40,12 +40,13 @@ namespace UIService.Runtime.Utilities
 
             if (safeAreaRect.height + 1 > Screen.height &&
                 (fitmentType == FitmentType.Vertical ||
-                 fitmentType == FitmentType.Left ||
-                 fitmentType == FitmentType.Right)) return;
+                 fitmentType == FitmentType.Top ||
+                 fitmentType == FitmentType.Bottom
+                )) return;
             if (safeAreaRect.width + 1 > Screen.width &&
                 (fitmentType == FitmentType.Horizontal ||
-                 fitmentType == FitmentType.Top ||
-                 fitmentType == FitmentType.Bottom)) return;
+                 fitmentType == FitmentType.Left ||
+                 fitmentType == FitmentType.Right)) return;
 
             safeAreaRect.height += (Screen.height - safeAreaRect.height) / 2;
             safeAreaRect.width += (Screen.width - safeAreaRect.width) / 2;
