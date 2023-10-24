@@ -1,6 +1,5 @@
 using System.IO;
 using Cysharp.Threading.Tasks;
-using UIService.Runtime.Core;
 using UnityEngine;
 
 namespace UIService.Runtime.Utilities
@@ -16,8 +15,9 @@ namespace UIService.Runtime.Utilities
         public async UniTask<T> LoadPrefabAsync<T>(string path) where T : Core.Presenter
         {
             string name = typeof(T).Name;
-            var asset = await Resources.LoadAsync<T>(Path.Combine(path, name));
-            return (T) asset;
+            ResourceRequest request = Resources.LoadAsync<T>(Path.Combine(path, name));
+            await UniTask.WaitUntil(() => request.isDone);
+            return (T)request.asset;
         }
     }
 }
