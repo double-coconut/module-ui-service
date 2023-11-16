@@ -6,10 +6,16 @@ using Zenject;
 
 namespace UIService.Runtime.Presenter
 {
+    [RequireComponent(typeof(Canvas))]
     public class PresenterView : MonoBehaviour, IInitializable, IDisposable
     {
+        [SerializeField] private Canvas canvas;
+
         private PresenterService _presenterService;
         private CompositeDisposable _disposable;
+
+        public Canvas Canvas => canvas;
+
 
         [Inject]
         private void Inject(PresenterService presenterService)
@@ -40,5 +46,15 @@ namespace UIService.Runtime.Presenter
         {
             _disposable?.Dispose();
         }
+
+
+#if UNITY_EDITOR
+
+        private void Reset()
+        {
+            canvas = GetComponent<Canvas>();
+        }
+
+#endif
     }
 }
