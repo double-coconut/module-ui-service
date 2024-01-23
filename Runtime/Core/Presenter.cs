@@ -20,6 +20,8 @@ namespace UIService.Runtime.Core
         public IObservable<Presenter> OnAfterHide => AfterHideSubject;
         public IObservable<bool> OnFocused => FocusSubject;
         public bool IsFocused { get; private set; }
+        public string Id { get; internal set; } 
+        
 
         public abstract UniTask Show();
         public abstract UniTask Hide();

@@ -14,12 +14,13 @@ namespace UIService.Runtime.Presenter
         private readonly string _presenterPrefabsPath = "UI/Presenters";
         private readonly PresenterLoader _asset;
         private readonly Stack<PresentersSequence> _presentersStack;
+        private readonly Queue<string> _presenterShowQueue = new Queue<string>();
         private readonly ReactiveCommand<BasePresenter> _presenterToShow;
         private readonly BoolReactiveProperty _hasActivePresenter;
 
         public IReadOnlyReactiveProperty<bool> HasActivePresenter => _hasActivePresenter;
         public IObservable<BasePresenter> ObserveNewPresenter => _presenterToShow;
-        
+
 
         public PresenterService(PresenterLoader asset)
         {
@@ -31,6 +32,9 @@ namespace UIService.Runtime.Presenter
 
         public async UniTask Show<T>(IPresenterData data = null, bool hidePrevious = true) where T : BasePresenter
         {
+            string id = Guid.NewGuid().ToString();
+            _presenterShowQueue.Enqueue(id);
+
             _hasActivePresenter.Value = true;
             if (hidePrevious)
             {
@@ -38,7 +42,14 @@ namespace UIService.Runtime.Presenter
             }
 
             T mockup = await _asset.LoadPrefabAsync<T>(_presenterPrefabsPath);
+            
+            while (_presenterShowQueue.Peek() != id)
+            {
+                await UniTask.DelayFrame(1);
+            }
+            _presenterShowQueue.Dequeue();
             T presenter = Object.Instantiate(mockup);
+            presenter.Id = id;
             presenter.Disable();
             PresentersSequence sequence = new PresentersSequence(presenter);
             _presentersStack.Push(sequence);
@@ -46,12 +57,22 @@ namespace UIService.Runtime.Presenter
             _presenterToShow.Execute(presenter);
             await Show(presenter);
         }
+        
 
         public async UniTask ShowInCurrentSequence<T>(IPresenterData data = null) where T : BasePresenter
         {
+            string id = Guid.NewGuid().ToString();
+            _presenterShowQueue.Enqueue(id);
             _hasActivePresenter.Value = true;
             T mockup = await _asset.LoadPrefabAsync<T>(_presenterPrefabsPath);
+            
+            while (_presenterShowQueue.Peek() != id)
+            {
+                await UniTask.DelayFrame(1);
+            }
+            _presenterShowQueue.Dequeue();
             T presenter = Object.Instantiate(mockup);
+            presenter.Id = id;
             presenter.Disable();
             presenter.Initialize(data);
             if (_presentersStack.Count == 0)
@@ -133,7 +154,7 @@ namespace UIService.Runtime.Presenter
             presenter.CallAfterHide();
             return sequence;
         }
-        
+
 
         public void Reset()
         {
