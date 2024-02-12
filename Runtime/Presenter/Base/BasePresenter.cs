@@ -32,6 +32,7 @@ namespace UIService.Runtime.Presenter.Base
 
         public override UniTask Show()
         {
+            group.interactable = true;
             AnimSequence?.Kill();
             AnimSequence = BuildAnimationSequence(true);
 
@@ -42,6 +43,7 @@ namespace UIService.Runtime.Presenter.Base
 
         public override UniTask Hide()
         {
+            group.interactable = false;
             AnimSequence?.Kill();
             AnimSequence = BuildAnimationSequence(false);
 
@@ -52,12 +54,14 @@ namespace UIService.Runtime.Presenter.Base
 
         public override void Disable()
         {
+            group.interactable = false;
             AnimSequence?.Kill();
             gameObject.SetActive(false);
         }
 
         public override void Enable()
         {
+            group.interactable = true;
             AnimSequence?.Kill();
             gameObject.SetActive(true);
         }
