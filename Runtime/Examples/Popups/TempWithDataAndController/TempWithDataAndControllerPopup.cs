@@ -1,7 +1,7 @@
 using System;
 using UIService.Runtime.Core;
 using UIService.Runtime.Presenter.Base;
-using UniRx;
+using R3;
 using UnityEngine;
 using UnityEngine.UI;
 

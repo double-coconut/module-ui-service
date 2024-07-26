@@ -3,7 +3,6 @@
     "rootNamespace": "",
     "references": [
         "Zenject",
-        "UniRx",
         "UniTask",
         "UniTask.DOTween",
         "UniTask.TextMeshPro",
@@ -11,7 +10,8 @@
         "UniTask.Addressables",
         "Unity.TextMeshPro",
         "DOTween.Modules",
-        "DOTweenPro.Scripts"
+        "DOTweenPro.Scripts",
+        "R3.Unity"
     ],
     "includePlatforms": [],
     "excludePlatforms": [],

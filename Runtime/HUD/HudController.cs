@@ -4,7 +4,7 @@ using System.Linq;
 using Cysharp.Threading.Tasks;
 using UIService.Runtime.Core;
 using UIService.Runtime.Utilities;
-using UniRx;
+using R3;
 using Object = UnityEngine.Object;
 
 namespace UIService.Runtime.Hud
@@ -15,7 +15,8 @@ namespace UIService.Runtime.Hud
         private readonly PresenterLoader _asset;
         private readonly ReactiveCommand<InitializablePresenter> _panelShowObservable;
         private readonly List<InitializablePresenter> _activePanels;
-        public IObservable<InitializablePresenter> PanelShowObservable => _panelShowObservable;
+        public Observable<InitializablePresenter> PanelShowObservable => _panelShowObservable;
+        
         public HudController(PresenterLoader asset)
         {
             _asset = asset;

@@ -2,7 +2,7 @@ using Cysharp.Threading.Tasks;
 using DG.Tweening;
 using UIService.Runtime.Core;
 using UIService.Runtime.Utilities;
-using UniRx;
+using R3;
 using UnityEngine;
 using Zenject;
 

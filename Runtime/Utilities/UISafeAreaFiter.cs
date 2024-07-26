@@ -38,15 +38,7 @@ namespace UIService.Runtime.Utilities
         {
             Rect safeAreaRect = Screen.safeArea;
 
-            if (safeAreaRect.height + 1 > Screen.height &&
-                (fitmentType == FitmentType.Vertical ||
-                 fitmentType == FitmentType.Top ||
-                 fitmentType == FitmentType.Bottom
-                )) return;
-            if (safeAreaRect.width + 1 > Screen.width &&
-                (fitmentType == FitmentType.Horizontal ||
-                 fitmentType == FitmentType.Left ||
-                 fitmentType == FitmentType.Right)) return;
+            if (safeAreaRect.height + 1 > Screen.height || safeAreaRect.width + 1 > Screen.width) return;
 
             safeAreaRect.height += (Screen.height - safeAreaRect.height) / 2;
             safeAreaRect.width += (Screen.width - safeAreaRect.width) / 2;

@@ -1,6 +1,6 @@
 using System;
 using UIService.Runtime.Presenter;
-using UniRx;
+using R3;
 
 namespace UIService.Runtime.Hud.Bottom
 {

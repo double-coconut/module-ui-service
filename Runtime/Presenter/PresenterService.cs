@@ -4,7 +4,7 @@ using Cysharp.Threading.Tasks;
 using UIService.Runtime.Core;
 using UIService.Runtime.Presenter.Base;
 using UIService.Runtime.Utilities;
-using UniRx;
+using R3;
 using Object = UnityEngine.Object;
 
 namespace UIService.Runtime.Presenter
@@ -16,16 +16,16 @@ namespace UIService.Runtime.Presenter
         private readonly Stack<PresentersSequence> _presentersStack;
         private readonly Queue<string> _presenterShowQueue = new Queue<string>();
         private readonly ReactiveCommand<BasePresenter> _presenterToShow;
-        private readonly BoolReactiveProperty _hasActivePresenter;
+        private readonly ReactiveProperty<bool> _hasActivePresenter;
 
-        public IReadOnlyReactiveProperty<bool> HasActivePresenter => _hasActivePresenter;
-        public IObservable<BasePresenter> ObserveNewPresenter => _presenterToShow;
+        public ReadOnlyReactiveProperty<bool> HasActivePresenter => _hasActivePresenter;
+        public Observable<BasePresenter> ObserveNewPresenter => _presenterToShow;
 
 
         public PresenterService(PresenterLoader asset)
         {
             _asset = asset;
-            _hasActivePresenter = new BoolReactiveProperty();
+            _hasActivePresenter = new ReactiveProperty<bool>();
             _presentersStack = new Stack<PresentersSequence>();
             _presenterToShow = new ReactiveCommand<BasePresenter>();
         }

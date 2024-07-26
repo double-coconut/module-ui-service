@@ -1,6 +1,6 @@
 using System;
 using Cysharp.Threading.Tasks;
-using UniRx;
+using R3;
 using UnityEngine;
 
 namespace UIService.Runtime.Core
@@ -14,11 +14,11 @@ namespace UIService.Runtime.Core
         private Subject<bool> FocusSubject = new Subject<bool>();
 
 
-        public IObservable<Presenter> OnBeforeShow => BeforeShowSubject;
-        public IObservable<Presenter> OnAfterShow => AfterShowSubject;
-        public IObservable<Presenter> OnBeforeHide => BeforeHideSubject;
-        public IObservable<Presenter> OnAfterHide => AfterHideSubject;
-        public IObservable<bool> OnFocused => FocusSubject;
+        public Observable<Presenter> OnBeforeShow => BeforeShowSubject;
+        public Observable<Presenter> OnAfterShow => AfterShowSubject;
+        public Observable<Presenter> OnBeforeHide => BeforeHideSubject;
+        public Observable<Presenter> OnAfterHide => AfterHideSubject;
+        public Observable<bool> OnFocused => FocusSubject;
         public bool IsFocused { get; private set; }
         public string Id { get; internal set; } 
         
